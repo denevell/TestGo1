@@ -15,7 +15,7 @@ var feeling = []Feeling{
 	Feeling{"somewhat", "exuberant"},
 }
 
-var templateStr = `I am feeling {{range $i, $e := .feeling}}{{$e.HowMuch}} {{$e.What}}{{if $i}}.{{else}}, {{end}}{{end}}`
+var templateStr = `I am feeling {{range $i, $e := .feeling}}{{if $i}}and {{end}}{{$e.HowMuch}} {{$e.What}}{{if $i}}.{{else}}, {{end}}{{end}}`
 
 func main() {
 	tmpl, err := template.New("test").Parse(templateStr)
