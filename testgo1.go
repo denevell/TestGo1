@@ -3,33 +3,61 @@ package main
 import "net/http"
 import "fmt"
 import "log"
-import "text/template"
+import "io/ioutil"
+import "encoding/json"
+import "html/template"
 
-type Feeling struct {
-	HowMuch string
-	What    string
-}
+type Project struct {
+	Title string
+	Description string
+	Features []string
+	Keywords []string
+} 
 
-var feeling = []Feeling{
-	Feeling{"moderately", "tired"},
-	Feeling{"somewhat", "exuberant"},
-}
-
-var templateStr = `I am feeling {{range $i, $e := .feeling}}{{if $i}}and {{end}}{{$e.HowMuch}} {{$e.What}}{{if $i}}.{{else}}, {{end}}{{end}}`
+var templateStr = `
+	{{range $i,$v := .projects}}
+		<h3>{{.Title}}</h3>
+		{{.Description}}<br />
+		<br />
+		Features:
+		<ul>
+		{{range $i,$v := .Features}}
+			<li>{{$v}}</li>	
+		{{end}}
+		</ul>
+		<div>
+		Keywords:
+		{{range $i,$v := .Keywords}}{{if $i}}, {{end}}{{$v}}{{end}}
+		</div>
+		<hr />
+	{{end}}
+`
 
 func main() {
-	tmpl, err := template.New("test").Parse(templateStr)
-	if err != nil {
-		log.Fatal(err)
-	}
+        tmpl, err := template.New("test").Parse(templateStr)
+        if err != nil {
+                log.Fatal(err)
+        }
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		err := tmpl.Execute(w,
-			map[string]interface{}{
-				"feeling": feeling,
-			})
+		resp, err := http.Get("https://raw.github.com/denevell/BlogPosts/master/portfolio.json")
+		defer resp.Body.Close()
+		body, err := ioutil.ReadAll(resp.Body)
+
+		projects := make([]Project, 1)
+		err = json.Unmarshal(body, &projects)
+		if err!=nil {
+			fmt.Fprintf(w, "Problem unmarshaling.")
+		}
+		fmt.Fprintf(w,"<html>")
+                err = tmpl.Execute(w,
+                        map[string]interface{}{
+                                "projects": projects,
+                        })
 		if err != nil {
 			fmt.Fprintf(w, "Error: "+err.Error())
 		}
+		fmt.Fprintf(w,"</html>")
 	})
 	log.Fatal(http.ListenAndServe(":7001", nil))
 }
