@@ -12,12 +12,17 @@ type Project struct {
 	Description string
 	Features []string
 	Keywords []string
+	Images []string
 } 
 
 var templateStr = `
 	{{range $i,$v := .projects}}
 		<h3>{{.Title}}</h3>
 		{{.Description}}<br />
+		<br />
+		{{range $i,$v := .Images}}
+			<img src="{{$v}}" />	
+		{{end}}
 		<br />
 		Features:
 		<ul>
