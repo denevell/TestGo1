@@ -15,35 +15,13 @@ type Project struct {
 	Images []string
 } 
 
-var templateStr = `
-	{{range $i,$v := .projects}}
-		<h3>{{.Title}}</h3>
-		{{.Description}}<br />
-		<br />
-		{{range $i,$v := .Images}}
-			<img src="{{$v}}" />	
-		{{end}}
-		<br />
-		Features:
-		<ul>
-		{{range $i,$v := .Features}}
-			<li>{{$v}}</li>	
-		{{end}}
-		</ul>
-		<div>
-		Keywords:
-		{{range $i,$v := .Keywords}}{{if $i}}, {{end}}{{$v}}{{end}}
-		</div>
-		<hr />
-	{{end}}
-`
-
 func main() {
-        tmpl, err := template.New("test").Parse(templateStr)
+        tmpl, err := template.ParseFiles("site.tmpl")
         if err != nil {
                 log.Fatal(err)
         }
 
+	http.Handle("/res/", http.FileServer(http.Dir("")))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		resp, err := http.Get("https://raw.github.com/denevell/BlogPosts/master/portfolio.json")
 		defer resp.Body.Close()
@@ -54,7 +32,6 @@ func main() {
 		if err!=nil {
 			fmt.Fprintf(w, "Problem unmarshaling.")
 		}
-		fmt.Fprintf(w,"<html>")
                 err = tmpl.Execute(w,
                         map[string]interface{}{
                                 "projects": projects,
@@ -62,7 +39,6 @@ func main() {
 		if err != nil {
 			fmt.Fprintf(w, "Error: "+err.Error())
 		}
-		fmt.Fprintf(w,"</html>")
 	})
 	log.Fatal(http.ListenAndServe(":7001", nil))
 }

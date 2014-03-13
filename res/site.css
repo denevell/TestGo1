@@ -1,0 +1,13 @@
+.features-list-group {
+	width:50%;
+	max-width:500px;
+}
+
+.features-list-item {
+	background-color:#F7F7F9;
+	font-size:16px;
+}
+
+.project-title {
+	padding:10px
+}
