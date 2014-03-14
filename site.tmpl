@@ -27,13 +27,16 @@
                 {{end}}
 		</div>
 		<br />
-                <ul class="list-group features-list-group">
-                {{range $i,$v := .Features}}
-                        <li class="list-group-item features-list-item">{{$v}}</li>
-                {{end}}
-                </ul>
-                <div>
-                {{range $i,$v := .Keywords}}<span class="label label-success">{{$v}}</span> {{end}}
+		<div>
+			<ul class="list-group features-list-group">
+			{{range $i,$v := .Features}}
+				<li class="list-group-item features-list-item">{{$v}}</li>
+			{{end}}
+			</ul>
+			<div class="keywords-container">
+			{{range $i,$v := .Keywords}}<button class="btn btn-success keyword">{{$v}}</button> {{end}}
+			</div>
+			<div class="clearfix" />
                 </div>
         {{end}}
 	<br />

@@ -1,6 +1,20 @@
+.keywords-container {
+	width:15%;
+	float: left;
+	margin-left: 10px;
+}
+
+.keyword {
+	line-height: 1;
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
 .features-list-group {
 	width:50%;
 	max-width:500px;
+	float: left;
 }
 
 .features-list-item {
