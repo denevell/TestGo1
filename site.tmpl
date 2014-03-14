@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NewFiveFour.com</title>
+
+    <link href="res/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="res/site.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="container">
+	<div class="page-header">
+		<h1>NewFiveFour.com <small>Projects</small></h1>
+	</div>
+
+        {{range $i,$v := .projects}}
+                <h3 class="bg-primary project-title">{{.Title}}</h3>
+                <p class="lead">{{.Description}}</p>
+		<div>
+                {{range $i,$v := .Images}}
+                        <img class="img-rounded" src="{{$v}}" />
+                {{end}}
+		</div>
+		<br />
+                <ul class="list-group features-list-group">
+                {{range $i,$v := .Features}}
+                        <li class="list-group-item features-list-item">{{$v}}</li>
+                {{end}}
+                </ul>
+                <div>
+                {{range $i,$v := .Keywords}}<span class="label label-success">{{$v}}</span> {{end}}
+                </div>
+        {{end}}
+	<br />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="res/jquery-1.11.0.min.js"></script>
+    <script src="res/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
