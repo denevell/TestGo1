@@ -1,17 +1,30 @@
-.keywords-container {
-	width:15%;
-	float: left;
-	margin-left: 10px;
+
+.page-header {
+	margin-left:40px;
+	margin-right:40px;
 }
 
-.keyword {
-	line-height: 1;
-	font-size: 15px;
-	font-weight: bold;
-	margin-bottom: 5px;
+.project-title {
+	padding:10px;
+	padding-left:40px;
+	padding-top:15px;
+	padding-bottom:15px;
 }
 
-.features-list-group {
+.project-description {
+	margin-left:40px;
+	margin-right:40px;
+}
+
+.project-images {
+	margin-left:40px;
+	margin-right:40px;
+	margin-bottom:20px;
+}
+
+.project-features {
+	margin-left:40px;
+	margin-right:40px;
 	width:50%;
 	max-width:500px;
 	float: left;
@@ -22,6 +35,16 @@
 	font-size:16px;
 }
 
-.project-title {
-	padding:10px
+.project-keywords {
+	width:15%;
+	float: left;
+	margin-left: 0px;
 }
+
+.keyword {
+	line-height: 1;
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+

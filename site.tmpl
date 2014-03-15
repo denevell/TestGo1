@@ -13,31 +13,27 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="container">
+  <body class="">
 	<div class="page-header">
 		<h1>NewFiveFour.com <small>Projects</small></h1>
 	</div>
-
         {{range $i,$v := .projects}}
-                <h3 class="bg-primary project-title">{{.Title}}</h3>
-                <p class="lead">{{.Description}}</p>
-		<div>
+        <h3 class="bg-primary project-title">{{.Title}}</h3>
+        <p class="project-description lead">{{.Description}}</p>
+	<div class="project-images">
                 {{range $i,$v := .Images}}
-                        <img class="img-rounded" src="{{$v}}" />
+                       <img class="img-rounded" src="{{$v}}" />
                 {{end}}
-		</div>
-		<br />
-		<div>
-			<ul class="list-group features-list-group">
-			{{range $i,$v := .Features}}
-				<li class="list-group-item features-list-item">{{$v}}</li>
-			{{end}}
-			</ul>
-			<div class="keywords-container">
-			{{range $i,$v := .Keywords}}<button class="btn btn-success keyword">{{$v}}</button> {{end}}
-			</div>
-			<div class="clearfix" />
-                </div>
+	</div>
+	<ul class="list-group project-features">
+	{{range $i,$v := .Features}}
+		<li class="list-group-item features-list-item">{{$v}}</li>
+	{{end}}
+	</ul>
+	<div class="project-keywords">
+	{{range $i,$v := .Keywords}}<button class="btn btn-success keyword">{{$v}}</button> {{end}}
+	</div>
+	<div class="clearfix"></div>
         {{end}}
 	<br />
 
