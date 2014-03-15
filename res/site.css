@@ -1,3 +1,41 @@
+.container-fluid {
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+[class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+.row{
+    overflow: hidden; 
+}
+
+.col-md-10 {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.col-md-2 {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.sidebar {
+	background-color: #428BCA;
+}
+
+.sidebar-text {
+	margin-top:20px;
+	padding:10px;
+	color: white;
+	font-size: 20px;
+	line-height: 1.1;
+	font-weight: 500;
+}
 
 .page-header {
 	margin-left:40px;
@@ -36,9 +74,8 @@
 }
 
 .project-keywords {
-	width:15%;
-	float: left;
-	margin-left: 0px;
+	margin-left:40px;
+	margin-right:40px;
 }
 
 .keyword {
