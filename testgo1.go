@@ -7,12 +7,18 @@ import "io/ioutil"
 import "encoding/json"
 import "html/template"
 
+type Link struct {
+	Link string
+	Description string
+}
+
 type Project struct {
 	Title string
 	Description string
 	Features []string
 	Keywords []string
 	Images []string
+	Links []Link
 } 
 
 var PORTFOLIO_BYTES []byte = nil
