@@ -36,6 +36,11 @@
 	{{range $i,$v := .Features}}
 		<li class="list-group-item features-list-item">{{$v}}</li>
 	{{end}}
+        <div class="project-links">
+        {{range $i,$v := .Links}}
+                <a class="btn btn-primary link" href="{{$v.Link}}">{{$v.Description}}</a>
+        {{end}}
+        </div>
 	</ul>
 	<div class="clearfix"></div>
         {{end}}
