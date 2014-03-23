@@ -29,22 +29,22 @@
         <p class="project-description lead">{{.Description}}</p>
 	<div class="project-images">
                 {{range $i,$v := .Images}}
-                       <img class="img-rounded" src="{{$v}}" />
+                       <img class="img-rounded project-image" src="{{$v}}" />
                 {{end}}
 	</div>
 	<ul class="list-group project-features">
 	{{range $i,$v := .Features}}
 		<li class="list-group-item features-list-item">{{$v}}</li>
 	{{end}}
-	<div class="project-links">
-	{{range $i,$v := .Links}}
-		<a class="btn btn-primary link" href="{{$v.Link}}">{{$v.Description}}</a>
-	{{end}}
-	</div>
 	</ul>
 	<div class="clearfix"></div>
         {{end}}
 	<br />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="res/jquery-1.11.0.min.js"></script>
+    <script src="res/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+
 		</div>
 		<div class="col-md-2 col-md-pull-10 sidebar">
 			<p class="sidebar-text">
@@ -57,8 +57,5 @@ unit testing, ui testing, continuous integration, and solid object orientated pr
 		</div>
 	</div>
 	</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="res/jquery-1.11.0.min.js"></script>
-    <script src="res/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
   </body>
 </html>
