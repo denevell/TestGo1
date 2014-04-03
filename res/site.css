@@ -42,6 +42,14 @@ body {
 	font-weight: 500;
 }
 
+.sidebar-items {
+	padding-left:30px;
+}
+
+.sidebar-item {
+	padding-bottom:5px;
+}
+
 .page-header {
 	margin-left:40px;
 	margin-right:40px;
