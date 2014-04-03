@@ -1,3 +1,7 @@
+body {
+	background-color:#428BCA;
+}
+
 .container-fluid {
 	margin-left: 0px;
 	margin-right: 0px;
@@ -5,15 +9,15 @@
 	padding-right: 0px;
 }
 
-[class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
-}
-
 .row{
     overflow: hidden; 
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.main-content {
+	padding-top: 20px;
+	background-color: white;
 }
 
 .col-md-10 {
@@ -27,7 +31,6 @@
 }
 
 .sidebar {
-	background-color: #428BCA;
 }
 
 .sidebar-text {
