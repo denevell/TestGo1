@@ -42,6 +42,11 @@ body {
 	font-weight: 500;
 }
 
+.sidebar-link {
+	color:#fff;
+	text-decoration:underline;
+}
+
 .sidebar-items {
 	padding-left:30px;
 }
